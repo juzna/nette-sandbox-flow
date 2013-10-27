@@ -17,6 +17,7 @@ class RouterFactory
 	public function createRouter()
 	{
 		$router = new RouteList();
+		if (PHP_SAPI === 'cli') $router[] = new \Nette\Application\Routers\CliRouter(['action' => 'Homepage:default']);
 		$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
 		return $router;
 	}

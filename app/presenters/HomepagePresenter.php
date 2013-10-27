@@ -1,14 +1,15 @@
 <?php
 
-/**
- * Homepage presenter.
- */
+
 class HomepagePresenter extends BasePresenter
 {
 
-	public function renderDefault()
+	public function actionDefault()
 	{
-		$this->template->anyVariable = 'any value';
+		$this->addComponent(new GithubComponent($this->context->httpClient, 'juzna'), 'ghJuzna');
+		$this->addComponent(new GithubComponent($this->context->httpClient, 'hosiplan'), 'ghHosiplan');
+		$this->addComponent(new GithubComponent($this->context->httpClient, 'kaja47'), 'ghKaja');
+		$this->addComponent(new GithubComponent($this->context->httpClient, 'dg'), 'ghDg');
 	}
 
 }

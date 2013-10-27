@@ -7,8 +7,9 @@ require __DIR__ . '/../libs/autoload.php';
 $configurator = new Nette\Config\Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
-//$configurator->setDebugMode(TRUE);
+$configurator->setDebugMode(TRUE);
 $configurator->enableDebugger(__DIR__ . '/../log');
+Nette\Diagnostics\Debugger::$strictMode = FALSE;
 
 // Specify folder for cache
 $configurator->setTempDirectory(__DIR__ . '/../temp');
