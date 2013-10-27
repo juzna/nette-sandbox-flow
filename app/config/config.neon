@@ -30,7 +30,21 @@ common:
 		router: @routerFactory::createRouter
 
 
-	factories:
+		eventLoop:
+			class: React\EventLoop\LoopInterface
+			factory: React\EventLoop\Factory::create()
+
+		dnsFactory: React\Dns\Resolver\Factory
+		dnsResolver:
+			class: React\Dns\Resolver\Resolver
+			factory: @dnsFactory::createCached('8.8.8.8', ...)
+
+		httpClientFactory: React\HttpClient\Factory
+		httpClient:
+			class: React\HttpClient\Client
+			factory: @httpClientFactory::create
+
+
 
 
 production < common:
