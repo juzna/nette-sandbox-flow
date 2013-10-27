@@ -26,8 +26,7 @@ class GithubComponent extends BaseControl
 		$data = (yield $this->httpClient->request('GET', "https://github.com/$this->name.json")->getResponseBody());
 		$events = Nette\Utils\Json::decode($data, Nette\Utils\Json::FORCE_ARRAY);
 		if (!isset($events[0])) {
-			yield "No info";
-			return;
+			yield result("No info");
 		}
 		$event = $events[0];
 
@@ -35,10 +34,10 @@ class GithubComponent extends BaseControl
 		$composerData = (yield $this->httpClient->request('GET', $url)->getResponseBody());
 
 		if ($composer = json_decode($composerData, JSON_OBJECT_AS_ARRAY)) {
-			yield "Last change to composer project $composer[name]";
+			yield result("Last change to composer project $composer[name]");
 
 		} else {
-			yield "Last change to github repo {$event['repository']['url']}";
+			yield result("Last change to github repo {$event['repository']['url']}");
 		}
 	}
 
