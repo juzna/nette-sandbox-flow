@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cc24adcfc5d6438e60b697aa7cc7e49b",
+    "hash": "61fac3af5c2c78ca171aec04069f6c46",
     "packages": [
         {
             "name": "dg/adminer-custom",
@@ -227,22 +227,22 @@
         },
         {
             "name": "react/react",
-            "version": "v0.3.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/reactphp/react.git",
-                "reference": "210c11a6041cfa2ce1701a4870b69475d9081265"
+                "url": "https://github.com/juzna/react.git",
+                "reference": "375071dbeacaba7712d2409c7123de3b5421cad8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/react/zipball/210c11a6041cfa2ce1701a4870b69475d9081265",
-                "reference": "210c11a6041cfa2ce1701a4870b69475d9081265",
+                "url": "https://api.github.com/repos/juzna/react/zipball/375071dbeacaba7712d2409c7123de3b5421cad8",
+                "reference": "375071dbeacaba7712d2409c7123de3b5421cad8",
                 "shasum": ""
             },
             "require": {
                 "evenement/evenement": "1.0.*",
                 "guzzle/parser": "~3.0",
-                "php": ">=5.3.3",
+                "php": ">=5.4.0",
                 "react/promise": "~1.0"
             },
             "replace": {
@@ -262,7 +262,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.3-dev"
+                    "dev-master": "0.4-dev"
                 }
             },
             "autoload": {
@@ -270,7 +270,6 @@
                     "React": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -279,7 +278,12 @@
                 "event-loop",
                 "reactor"
             ],
-            "time": "2013-07-09 01:55:25"
+            "support": {
+                "issues": "https://github.com/reactphp/react/issues",
+                "irc": "irc://irc.freenode.org/reactphp",
+                "source": "https://github.com/juzna/react/tree/master"
+            },
+            "time": "2013-10-19 16:15:57"
         }
     ],
     "packages-dev": null,
@@ -287,9 +291,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "react/react": 20
+    },
     "platform": {
         "php": ">= 5.3.0"
     },
