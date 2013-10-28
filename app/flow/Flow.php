@@ -1,5 +1,7 @@
 <?php
 
+namespace Flow;
+
 use React\Promise\PromiseInterface;
 
 
@@ -59,9 +61,9 @@ class Flow
 			$v = null;
 			$first = true;
 			if ($component instanceof FlowControl) $g = $component->renderFlow();
-			elseif ($component instanceof Generator) $g = $component;
-			elseif ($component instanceof Closure) $g = $component();
-			else throw new Exception("Invalid component given");
+			elseif ($component instanceof \Generator) $g = $component;
+			elseif ($component instanceof \Closure) $g = $component();
+			else throw new \Exception("Invalid component given");
 
 			do {
 				$v2 = $first ? $g->current() : $g->send($v);
@@ -71,7 +73,7 @@ class Flow
 				elseif ($v2 instanceof PromiseInterface) {
 					$v = new PromiseWrapper($v2);
 					while (!$v->isResolved) {
-						Nette\Environment::getService('eventLoop')->run();
+						\Nette\Environment::getService('eventLoop')->run();
 					}
 					$v = $v->data;
 				}
@@ -96,9 +98,9 @@ class Flow
 		// init all components
 		foreach ($components as $k => $component) {
 			if ($component instanceof FlowControl) $g = $component->renderFlow();
-			elseif ($component instanceof Generator) $g = $component;
-			elseif ($component instanceof Closure) $g = $component();
-			else throw new Exception("Invalid component given");
+			elseif ($component instanceof \Generator) $g = $component;
+			elseif ($component instanceof \Closure) $g = $component();
+			else throw new \Exception("Invalid component given");
 
 			$status[$k] = [
 				$component,
@@ -132,7 +134,7 @@ class Flow
 				$v2 = $first ? $g->current() : $g->send($v);
 				$status[$k][3] = $first = false;
 
-				if ($v2 instanceof Generator) { // inner generator created -> add to queue
+				if ($v2 instanceof \Generator) { // inner generator created -> add to queue
 					$g2 = $v2;
 					$v2 = $v2->current();
 					$i++;
@@ -164,7 +166,7 @@ class Flow
 //			echo "round done, sending bulk requests and waiting for network\n";
 //			Scheduler::sendRequests();
 			echo "waiting for react\n";
-			Nette\Environment::getService('eventLoop')->run();
+			\Nette\Environment::getService('eventLoop')->run();
 			echo "\n\n";
 		} while($running);
 

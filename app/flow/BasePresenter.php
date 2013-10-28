@@ -1,5 +1,9 @@
 <?php
 
+namespace Flow;
+
+use Nette;
+
 /**
  * Base presenter for all application presenters.
  */

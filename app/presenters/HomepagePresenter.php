@@ -1,7 +1,9 @@
 <?php
 
+use Flow\Flow;
 
-class HomepagePresenter extends BasePresenter
+
+class HomepagePresenter extends \Flow\BasePresenter
 {
 
 	/**

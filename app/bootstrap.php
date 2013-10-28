@@ -4,7 +4,7 @@
 require __DIR__ . '/../libs/autoload.php';
 
 function result($x) {
-	return new Result($x);
+	return new Flow\Result($x);
 }
 
 

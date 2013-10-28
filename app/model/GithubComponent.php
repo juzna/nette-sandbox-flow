@@ -6,7 +6,7 @@ use Nette\Utils\Json;
 /**
  * Show last updated project
  */
-class GithubComponent extends BaseControl
+class GithubComponent extends Flow\BaseControl
 {
 	/** @var React\HttpClient\Client */
 	public $httpClient;

@@ -1,5 +1,7 @@
 <?php
 
+namespace Flow;
+
 
 interface FlowControl
 {

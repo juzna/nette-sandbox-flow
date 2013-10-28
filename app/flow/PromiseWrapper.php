@@ -1,5 +1,8 @@
 <?php
 
+namespace Flow;
+
+use React;
 
 /**
  * Hold the value of promise, when it gets resolved
@@ -19,7 +22,7 @@ class PromiseWrapper
 	public $error;
 
 
-	public function __construct(\React\Promise\PromiseInterface $promise)
+	public function __construct(React\Promise\PromiseInterface $promise)
 	{
 		$promise->then(
 			function($data) {

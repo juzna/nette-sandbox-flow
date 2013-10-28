@@ -1,6 +1,6 @@
 <?php
 
-
+namespace Flow;
 
 /**
  * Common ancestor for components
