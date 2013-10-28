@@ -28,7 +28,7 @@ class HomepagePresenter extends \Flow\BasePresenter
 
 		// generator
 		$loader = function($name) {
-			$data = (yield $this->context->httpClient->request('GET', "https://github.com/$name.json")->getResponseBody());
+			$data = (yield $this->context->httpClient->get("https://github.com/$name.json"));
 			$events = Nette\Utils\Json::decode($data, Nette\Utils\Json::FORCE_ARRAY);
 			if (!isset($events[0])) {
 				yield result("No info");

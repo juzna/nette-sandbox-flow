@@ -231,12 +231,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/juzna/react.git",
-                "reference": "375071dbeacaba7712d2409c7123de3b5421cad8"
+                "reference": "065be13ecc66d6177ea127dd410d099b3d6c0a67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/juzna/react/zipball/375071dbeacaba7712d2409c7123de3b5421cad8",
-                "reference": "375071dbeacaba7712d2409c7123de3b5421cad8",
+                "url": "https://api.github.com/repos/juzna/react/zipball/065be13ecc66d6177ea127dd410d099b3d6c0a67",
+                "reference": "065be13ecc66d6177ea127dd410d099b3d6c0a67",
                 "shasum": ""
             },
             "require": {
@@ -281,9 +281,9 @@
             "support": {
                 "issues": "https://github.com/reactphp/react/issues",
                 "irc": "irc://irc.freenode.org/reactphp",
-                "source": "https://github.com/juzna/react/tree/master"
+                "source": "https://github.com/juzna/react/tree/http-client-getResposeBody"
             },
-            "time": "2013-10-19 16:15:57"
+            "time": "2013-10-28 09:34:22"
         }
     ],
     "packages-dev": null,
