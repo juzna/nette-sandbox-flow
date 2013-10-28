@@ -6,3 +6,6 @@ It uses *yield* (PHP 5.5) to switch between tasks, *Flow* as scheduler and *Rect
 
 
 More in this [blog post on gist](https://gist.github.com/juzna/7194037)
+
+
+Based on [flow](https://github.com/kaja47/flow) by K47.
