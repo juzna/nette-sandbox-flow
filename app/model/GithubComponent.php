@@ -25,7 +25,7 @@ class GithubComponent extends Flow\BaseControl
 
 	public function renderFlow()
 	{
-		$data = (yield $this->httpClient->get("https://github.com/$this->name.json"));
+		list($data) = (yield $this->httpClient->get("https://github.com/$this->name.json"));
 		$events = Json::decode($data, Json::FORCE_ARRAY);
 		if (!isset($events[0])) {
 			yield result("No info");
@@ -33,7 +33,7 @@ class GithubComponent extends Flow\BaseControl
 		$event = $events[0];
 
 		$composerUrl = str_replace('https://', 'https://raw.', $event['repository']['url']) . '/master/composer.json';
-		$composerData = (yield $this->httpClient->get($composerUrl));
+		list($composerData) = (yield $this->httpClient->get($composerUrl));
 
 		if ($composer = json_decode($composerData, JSON_OBJECT_AS_ARRAY)) {
 			yield result("Last change to composer project $composer[name]");

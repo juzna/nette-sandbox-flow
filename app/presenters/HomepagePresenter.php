@@ -1,10 +1,15 @@
 <?php
 
-use Flow\Flow;
-
 
 class HomepagePresenter extends \Flow\BasePresenter
 {
+
+	protected function startup()
+	{
+		parent::startup();
+		Flow\Flow::register(new Flow\Schedulers\HorizontalScheduler($this->context->eventLoop));
+	}
+
 
 	/**
 	 * Render components asynchronously
@@ -28,7 +33,7 @@ class HomepagePresenter extends \Flow\BasePresenter
 
 		// generator
 		$loader = function($name) {
-			$data = (yield $this->context->httpClient->get("https://github.com/$name.json"));
+			list($data) = (yield $this->context->httpClient->get("https://github.com/$name.json"));
 			$events = Nette\Utils\Json::decode($data, Nette\Utils\Json::FORCE_ARRAY);
 			if (!isset($events[0])) {
 				yield result("No info");
@@ -51,12 +56,12 @@ class HomepagePresenter extends \Flow\BasePresenter
 
 		// try sync version
 		$t = microtime(TRUE);
-		dump(Flow::flowComponentsNaive(array_map(function($name) use ($loader) { return $loader($name); }, array_combine($names, $names))));
+		dump(flow(array_map(function($name) use ($loader) { return $loader($name); }, array_combine($names, $names))));
 		var_dump(microtime(TRUE) - $t);
 
 		// try async version
 		$t = microtime(TRUE);
-		dump(Flow::flowComponentsHorizontal(array_map(function($name) use ($loader) { return $loader($name); }, array_combine($names, $names))));
+		dump(flow(array_map(function($name) use ($loader) { return $loader($name); }, array_combine($names, $names))));
 		var_dump(microtime(TRUE) - $t);
 
 		$this->terminate();

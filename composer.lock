@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "61fac3af5c2c78ca171aec04069f6c46",
+    "hash": "9df240b289dd246a02b636900249afd0",
     "packages": [
         {
             "name": "dg/adminer-custom",
@@ -107,6 +107,53 @@
                 "url"
             ],
             "time": "2013-07-11 22:46:03"
+        },
+        {
+            "name": "juzna/flowphp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/juzna/flowphp.git",
+                "reference": "36550ee332441bbfec339f62418bfee075c79a2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/juzna/flowphp/zipball/36550ee332441bbfec339f62418bfee075c79a2a",
+                "reference": "36550ee332441bbfec339f62418bfee075c79a2a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5",
+                "react/promise": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Flow": "src/"
+                },
+                "classmap": [
+                    "src/exceptions.php"
+                ],
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Jan Dolecek",
+                    "email": "juzna.cz@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Cooperative Multitasking for PHP",
+            "keywords": [
+                "yield"
+            ],
+            "support": {
+                "source": "https://github.com/juzna/flowphp/tree/master",
+                "issues": "https://github.com/juzna/flowphp/issues"
+            },
+            "time": "2013-11-02 16:06:51"
         },
         {
             "name": "nette/nette",
@@ -231,12 +278,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/juzna/react.git",
-                "reference": "065be13ecc66d6177ea127dd410d099b3d6c0a67"
+                "reference": "f28cf1a69cd8207a4e5316dac1494bd4b43b0f86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/juzna/react/zipball/065be13ecc66d6177ea127dd410d099b3d6c0a67",
-                "reference": "065be13ecc66d6177ea127dd410d099b3d6c0a67",
+                "url": "https://api.github.com/repos/juzna/react/zipball/f28cf1a69cd8207a4e5316dac1494bd4b43b0f86",
+                "reference": "f28cf1a69cd8207a4e5316dac1494bd4b43b0f86",
                 "shasum": ""
             },
             "require": {
@@ -281,18 +328,71 @@
             "support": {
                 "issues": "https://github.com/reactphp/react/issues",
                 "irc": "irc://irc.freenode.org/reactphp",
-                "source": "https://github.com/juzna/react/tree/http-client-getResposeBody"
+                "source": "https://github.com/juzna/react/tree/master"
             },
-            "time": "2013-10-28 09:34:22"
+            "time": "2013-11-02 13:57:40"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+        {
+            "name": "nette/tester",
+            "version": "v0.9.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/tester.git",
+                "reference": "6729cd04e70761c51f77bdb46e2916220f18ee56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/tester/zipball/6729cd04e70761c51f77bdb46e2916220f18ee56",
+                "reference": "6729cd04e70761c51f77bdb46e2916220f18ee56",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "bin": [
+                "Tester/tester"
+            ],
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Tester/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "http://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "http://nette.org/contributors"
+                }
+            ],
+            "description": "An easy-to-use PHP Unit Testing framework.",
+            "homepage": "http://nette.org",
+            "keywords": [
+                "nette",
+                "testing",
+                "unit"
+            ],
+            "time": "2013-08-07 08:59:53"
+        }
+    ],
     "aliases": [
 
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "react/react": 20
+        "react/react": 20,
+        "juzna/flowphp": 20
     },
     "platform": {
         "php": ">= 5.3.0"

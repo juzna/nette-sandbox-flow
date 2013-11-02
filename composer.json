@@ -22,7 +22,8 @@
 		"nette/nette": ">= 2.0.7",
 		"dg/adminer-custom": "1",
 		"react/react": "dev-master",
-		"react/promise": "*"
+		"react/promise": "*",
+		"juzna/flowphp": "dev-master"
 	},
 	"require-dev": {
 		"nette/tester": "0.9.*"
@@ -31,6 +32,10 @@
 		{
 			"type": "vcs",
 			"url": "https://github.com/juzna/react"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/juzna/flowphp"
 		}
 	]
 }
