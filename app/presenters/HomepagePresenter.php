@@ -16,6 +16,10 @@ class HomepagePresenter extends \Flow\BasePresenter
 	 */
 	public function actionDefault()
 	{
+		if (($coop = $this->getParameter('coop')) !== NULL) {
+			Flow\Nette\Helpers::$async = (bool) $coop;
+		}
+
 		$this->addComponent(new GithubComponent($this->context->httpClient, 'juzna'), 'ghJuzna');
 		$this->addComponent(new GithubComponent($this->context->httpClient, 'hosiplan'), 'ghHosiplan');
 		$this->addComponent(new GithubComponent($this->context->httpClient, 'kaja47'), 'ghKaja');
@@ -56,12 +60,14 @@ class HomepagePresenter extends \Flow\BasePresenter
 
 		// try sync version
 		$t = microtime(TRUE);
-		dump(flow(array_map(function($name) use ($loader) { return $loader($name); }, array_combine($names, $names))));
+		$scheduler = new Flow\Schedulers\NaiveScheduler($this->context->eventLoop);
+		dump($scheduler->flow(array_map(function($name) use ($loader) { return $loader($name); }, array_combine($names, $names))));
 		var_dump(microtime(TRUE) - $t);
 
 		// try async version
 		$t = microtime(TRUE);
-		dump(flow(array_map(function($name) use ($loader) { return $loader($name); }, array_combine($names, $names))));
+		$scheduler = new Flow\Schedulers\HorizontalScheduler($this->context->eventLoop);
+		dump($scheduler->flow(array_map(function($name) use ($loader) { return $loader($name); }, array_combine($names, $names))));
 		var_dump(microtime(TRUE) - $t);
 
 		$this->terminate();
